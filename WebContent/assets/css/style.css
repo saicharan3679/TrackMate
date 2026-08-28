@@ -1,0 +1,290 @@
+/* ===========================================================
+   TrackMate v3 — Rail Booking UI
+   Elevated visual design: layered depth, gradient accents,
+   refined typography, subtle motion. Layout stays top-nav with
+   an "open container" so legacy server-appended result markup
+   lands inline in normal document flow (see page templates).
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #f5f6fb;
+  --bg-grad: radial-gradient(circle at 15% 0%, #eef0ff 0%, #f5f6fb 45%);
+  --surface: #ffffff;
+  --surface-alt: #f1f2fa;
+  --ink: #1a1830;
+  --ink-muted: #6c7086;
+  --primary: #5145e8;
+  --primary-dark: #362bb8;
+  --primary-light: #7a70f0;
+  --accent: #ff9d3d;
+  --accent-dark: #e07d1a;
+  --border: #e6e7f3;
+  --success: #17a76a;
+  --danger: #e5484d;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 4px 14px rgba(26, 24, 48, 0.06);
+  --shadow: 0 14px 34px rgba(26, 24, 48, 0.10);
+  --shadow-lg: 0 24px 60px rgba(26, 24, 48, 0.16);
+  font-size: 16px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg-grad);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-dark); }
+h1, h2, h3 { margin: 0 0 0.4em 0; letter-spacing: -0.01em; }
+
+/* ---------- Top navbar ---------- */
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding: 14px 30px;
+  background: linear-gradient(115deg, #241f5c, var(--primary) 55%, var(--primary-light));
+  color: #fff;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.topnav .brand {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.topnav .brand::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, var(--accent), #ffd08a);
+  box-shadow: 0 2px 8px rgba(255, 157, 61, 0.55);
+}
+.topnav .links {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.topnav a {
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 0.15s, color 0.15s;
+}
+.topnav a:hover { background: rgba(255,255,255,0.14); color: #fff; }
+.topnav a.active { background: rgba(255,255,255,0.22); color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25); }
+.topnav a.logout { color: #ffd3d3; margin-left: auto; }
+.topnav a.logout:hover { background: rgba(229,72,77,0.25); color: #fff; }
+
+/* ---------- Page container (left open by templates — see gen script) ---------- */
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px clamp(16px, 4vw, 32px) 70px;
+  animation: fadeUp 0.35s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-heading {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.page-subtext { color: var(--ink-muted); margin-bottom: 22px; font-size: 14.5px; }
+
+.banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 20px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-sm);
+  font-size: 14px;
+  position: relative;
+  padding-left: 24px;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 5px;
+  border-radius: var(--radius) 0 0 var(--radius);
+  background: linear-gradient(180deg, var(--primary), var(--primary-light));
+}
+.banner.notice::before { background: linear-gradient(180deg, var(--accent), #ffc98a); }
+
+/* ---------- Cards & forms ---------- */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 34px;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid rgba(255,255,255,0.6);
+}
+.card-wide { max-width: 720px; }
+.card h2 { font-size: 20px; margin-bottom: 20px; font-weight: 800; }
+
+.field { margin-bottom: 17px; }
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.field input[type="text"],
+.field input[type="password"],
+.field input[type="email"],
+.field input[type="number"],
+.field input[type="tel"],
+.field input[type="file"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid var(--border);
+  border-radius: 11px;
+  font-size: 14.5px;
+  font-family: inherit;
+  background: var(--surface-alt);
+  color: var(--ink);
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+.field input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(81, 69, 232, 0.12);
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  font-weight: 700;
+  font-size: 14.5px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(81, 69, 232, 0.28);
+  transition: transform 0.08s, box-shadow 0.15s;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(81, 69, 232, 0.35); }
+.btn:active { transform: translateY(0); }
+.btn.accent { background: linear-gradient(120deg, var(--accent), var(--accent-dark)); box-shadow: 0 8px 18px rgba(255, 157, 61, 0.35); }
+.btn.danger { background: linear-gradient(120deg, var(--danger), #c53232); box-shadow: 0 8px 18px rgba(229, 72, 77, 0.3); }
+
+.helper-links { margin-top: 18px; text-align: center; font-size: 13.5px; color: var(--ink-muted); }
+
+/* ---------- Tables (new components) ---------- */
+.table-wrap {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 6px;
+  overflow-x: auto;
+}
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th {
+  background: var(--surface-alt);
+  text-align: left;
+  padding: 13px 16px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  font-weight: 700;
+}
+td { padding: 13px 16px; border-top: 1px solid var(--border); }
+tr:hover td { background: var(--surface-alt); }
+
+/* ---------------------------------------------------------------
+   Legacy result fragments appended by several servlets after an
+   include() call. The page container above is left open in the
+   HTML templates so this markup lands INSIDE .page in normal
+   document flow — styled here to match the rest of the UI.
+   --------------------------------------------------------------- */
+.page .main { margin-top: 26px; }
+.page div.tab { margin-top: 26px; }
+.page div.tab table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.page div.tab table td {
+  padding: 13px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+.page div.tab table td.blue {
+  font-weight: 700;
+  color: var(--primary-dark);
+  width: 38%;
+  background: var(--surface-alt);
+}
+.page div.tab table input[type="text"] {
+  padding: 8px 11px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--surface-alt);
+}
+.page div.tab table input[type="submit"] {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+p1.menu {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 22px 0 10px 0;
+}
+.red { color: var(--danger); font-weight: 700; }
+
+footer.site-footer { text-align: center; padding: 26px; color: var(--ink-muted); font-size: 13px; }
+
+@media (max-width: 640px) {
+  .topnav { padding: 12px 16px; }
+  .topnav .links { gap: 2px; }
+  .page { padding: 26px 14px 56px; }
+  .card { padding: 26px; }
+}

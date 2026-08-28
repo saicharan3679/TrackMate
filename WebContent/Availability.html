@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TrackMate | Seat Availability</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <div class="brand">TrackMate</div>
+    <div class="links">
+      <a href="userhome">Home</a>
+      <a href="userviewtrainfwd">View Trains</a>
+      <a href="trainbwstnfwd">Between Stations</a>
+      <a href="bookingdetails">Booking History</a>
+      <a href="fareenqfwd">Fare Enquiry</a>
+      <a href="useravailfwd" class="active">Availability</a>
+      <a href="usersearchtrain">Search</a>
+      <a href="userprofile">Profile</a>
+    </div>
+    <a href="userlogout" class="logout">Log Out</a>
+  </nav>
+  <div class="page">
+    <div class="page-heading">Seat Availability</div>
+    <div class="page-subtext">Check how many seats are left on a train before booking.</div>
+    <div class="card">
+      <form action="useravail" method="post">
+        <div class="field"><label>Train Number</label><input type="text" name="trainno"></div>
+        <button type="submit" class="btn">Check Availability</button>
+      </form>
+    </div>

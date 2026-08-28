@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TrackMate | Fare Enquiry</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <div class="brand">TrackMate</div>
+    <div class="links">
+      <a href="userhome">Home</a>
+      <a href="userviewtrainfwd">View Trains</a>
+      <a href="trainbwstnfwd">Between Stations</a>
+      <a href="bookingdetails">Booking History</a>
+      <a href="fareenqfwd" class="active">Fare Enquiry</a>
+      <a href="useravailfwd">Availability</a>
+      <a href="usersearchtrain">Search</a>
+      <a href="userprofile">Profile</a>
+    </div>
+    <a href="userlogout" class="logout">Log Out</a>
+  </nav>
+  <div class="page">
+    <div class="page-heading">Fare Enquiry</div>
+    <div class="page-subtext">Find the fare between two stations.</div>
+    <div class="card">
+      <form action="fareenq" method="post">
+        <div class="field"><label>From Station</label><input type="text" name="fromstation"></div>
+        <div class="field"><label>To Station</label><input type="text" name="tostation"></div>
+        <button type="submit" class="btn">Get Fare</button>
+      </form>
+    </div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TrackMate | Book Trains</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <div class="brand">TrackMate</div>
+    <div class="links">
+      <a href="userhome">Home</a>
+      <a href="userviewtrainfwd">View Trains</a>
+      <a href="trainbwstnfwd">Between Stations</a>
+      <a href="bookingdetails">Booking History</a>
+      <a href="fareenqfwd">Fare Enquiry</a>
+      <a href="useravailfwd">Availability</a>
+      <a href="usersearchtrain">Search</a>
+      <a href="userprofile">Profile</a>
+    </div>
+    <a href="userlogout" class="logout">Log Out</a>
+  </nav>
+  <div class="page">
+    <div class="page-heading">Book a Train</div>
+    <div class="banner notice">Please check <a href="Availability.html">seat availability</a> before booking.</div>
+    <div class="card">
+      <form action="booktrains" method="post">
+        <div class="field"><label>Train Number</label><input type="text" name="trainnumber"></div>
+        <div class="field"><label>Number of Seats</label><input type="text" name="seats"></div>
+        <button type="submit" class="btn accent">Book Now</button>
+      </form>
+    </div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TrackMate | User Login</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <div class="brand">TrackMate</div>
+    <div class="links">
+      <a href="UserLogin.html" class="active">User Login</a>
+      <a href="UserRegister.html">Register</a>
+      <a href="AdminLogin.html">Admin Login</a>
+    </div>
+  </nav>
+  <div class="page" style="display:flex; flex-direction:column; align-items:center; padding-top:48px;">
+    <div class="card">
+      <h2>User Login</h2>
+      <form action="userlogin" method="post">
+        <div class="field">
+          <label>Email</label>
+          <input type="text" name="uname" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="pword">
+        </div>
+        <button type="submit" class="btn">Log In</button>
+      </form>
+      <div class="helper-links">New here? <a href="UserRegister.html">Create an account</a></div>
+    </div>

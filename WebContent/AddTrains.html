@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TrackMate | Add Trains</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <div class="brand">TrackMate</div>
+    <div class="links">
+      <a href="AdminHome.html">Home</a>
+      <a href="adminviewtrainfwd">View Trains</a>
+      <a href="adminsearchtrainfwd">Search</a>
+      <a href="addtrainfwd" class="active">Add Train</a>
+      <a href="cancletrainfwd">Delete Train</a>
+      <a href="updatetrain">Update Train</a>
+    </div>
+    <a href="adminlogout" class="logout">Log Out</a>
+  </nav>
+  <div class="page">
+    <div class="page-heading">Add a Train</div>
+    <div class="card card-wide">
+      <form action="adminaddtrain" method="post">
+        <div class="field"><label>Train Number</label><input type="text" name="trainno"></div>
+        <div class="field"><label>Train Name</label><input type="text" name="trainname"></div>
+        <div class="field"><label>From Station</label><input type="text" name="fromstation"></div>
+        <div class="field"><label>To Station</label><input type="text" name="tostation"></div>
+        <div class="field"><label>Available Seats</label><input type="text" name="available"></div>
+        <div class="field"><label>Fare (INR)</label><input type="text" name="fare"></div>
+        <button type="submit" class="btn accent">Add Train</button>
+      </form>
+    </div>
