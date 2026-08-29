@@ -61,6 +61,22 @@ public class ErrorHandlerServlet extends HttpServlet {
 		System.out.println("Error Message: " + errorMessage);
 		System.out.println("=============================");
 
+		String fullStackTrace = "";
+		if (throwable != null) {
+			java.io.StringWriter sw = new java.io.StringWriter();
+			throwable.printStackTrace(new PrintWriter(sw));
+			// Also unwrap the "caused by" chain, since the real DB error is
+			// often the root cause rather than the top-level TrainException.
+			Throwable cause = throwable.getCause();
+			while (cause != null) {
+				sw.write("\nCaused by: ");
+				cause.printStackTrace(new PrintWriter(sw));
+				cause = cause.getCause();
+			}
+			fullStackTrace = sw.toString()
+					.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
+		}
+
 		if (statusCode == 401) {
 			RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
 			rd.include(req, res);
@@ -69,9 +85,13 @@ public class ErrorHandlerServlet extends HttpServlet {
 		} else {
 			RequestDispatcher rd = req.getRequestDispatcher("error.html");
 			rd.include(req, res);
-			pw.println("<div style='margin-top:20%; text-align:center;'>\r\n"
+			pw.println("<div style='margin-top:5%; text-align:center;'>\r\n"
 					+ "	<p class=\"menu\" style='color:red'>" + errorCode + "</p><br>\r\n" + "	<p class=\"menu\">"
 					+ errorMessage + "</p>\r\n" + "  </div>");
+			pw.println("<div style='max-width:900px; margin:20px auto; text-align:left; background:#1e1e1e; "
+					+ "color:#e6e6e6; padding:16px; border-radius:10px; overflow-x:auto;'>"
+					+ "<pre style='white-space:pre-wrap; font-size:12px; margin:0;'>" + fullStackTrace + "</pre>"
+					+ "</div>");
 
 		}
 
