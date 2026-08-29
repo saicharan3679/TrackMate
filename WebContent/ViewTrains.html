@@ -6,20 +6,36 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav class="topnav">
+  <div class="app-shell">
+  <div class="topbar">
     <div class="brand">TrackMate</div>
-    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
-    <div class="links">
-      <a href="AdminHome.html">Home</a>
-      <a href="adminviewtrainfwd" class="active">View Trains</a>
-      <a href="adminsearchtrainfwd">Search</a>
-      <a href="addtrainfwd">Add Train</a>
-      <a href="cancletrainfwd">Delete Train</a>
-      <a href="updatetrain">Update Train</a>
-    </div>
-    <a href="adminlogout" class="logout">Log Out</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+  </div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <nav class="drawer" id="drawer">
+    <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
+    <div class="brand">TrackMate</div>
+      <a href="AdminHome.html" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg><span>Home</span></a>
+      <a href="adminviewtrainfwd" class="nav-link active"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="4" width="14" height="12" rx="3"/><path d="M5 12h14M8 20l-2 2M16 20l2 2M9 8h.01M15 8h.01"/></svg><span>View Trains</span></a>
+      <a href="adminsearchtrainfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg><span>Search</span></a>
+      <a href="addtrainfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg><span>Add Train</span></a>
+      <a href="cancletrainfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13"/></svg><span>Delete Train</span></a>
+      <a href="updatetrain" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L18 10l-4-4L4 16v4z"/></svg><span>Update Train</span></a>
+    <a href="adminlogout" class="nav-link logout"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4H5v16h4M15 16l4-4-4-4M19 12H9"/></svg><span>Log Out</span></a>
   </nav>
-  <div class="page">
+  <nav class="sidebar">
+    <div class="brand">TrackMate</div>
+      <a href="AdminHome.html" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg><span>Home</span></a>
+      <a href="adminviewtrainfwd" class="nav-link active"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="4" width="14" height="12" rx="3"/><path d="M5 12h14M8 20l-2 2M16 20l2 2M9 8h.01M15 8h.01"/></svg><span>View Trains</span></a>
+      <a href="adminsearchtrainfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg><span>Search</span></a>
+      <a href="addtrainfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg><span>Add Train</span></a>
+      <a href="cancletrainfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13"/></svg><span>Delete Train</span></a>
+      <a href="updatetrain" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L18 10l-4-4L4 16v4z"/></svg><span>Update Train</span></a>
+    <div class="nav-spacer"></div>
+    <a href="adminlogout" class="nav-link logout"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4H5v16h4M15 16l4-4-4-4M19 12H9"/></svg><span>Log Out</span></a>
+  </nav>
+    <div class="main-content">
+      <div class="page">
     <div class="page-heading">All Trains</div>
     <div class="page-subtext">Loading current train list…</div>
   <script src="assets/js/enhance.js"></script>

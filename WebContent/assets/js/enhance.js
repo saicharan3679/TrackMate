@@ -5,13 +5,67 @@
 (function () {
   "use strict";
 
-  function initNavToggle() {
-    var toggle = document.querySelector(".nav-toggle");
-    var links = document.querySelector(".topnav .links");
-    if (!toggle || !links) return;
-    toggle.addEventListener("click", function () {
-      links.classList.toggle("open");
+  function initDrawer() {
+    var menuBtn = document.getElementById("menuBtn");
+    var drawer = document.getElementById("drawer");
+    var backdrop = document.getElementById("drawerBackdrop");
+    var closeBtn = document.getElementById("drawerClose");
+    if (!menuBtn || !drawer || !backdrop) return;
+
+    function open() { drawer.classList.add("open"); backdrop.classList.add("open"); }
+    function close() { drawer.classList.remove("open"); backdrop.classList.remove("open"); }
+
+    menuBtn.addEventListener("click", open);
+    backdrop.addEventListener("click", close);
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    drawer.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", close);
     });
+  }
+
+  // Detects the booking-confirmation table (starts with a "PNR No" row)
+  // and rebuilds it as a proper digital-ticket card.
+  function enhancePnrTable(table) {
+    var rows = table.querySelectorAll("tr");
+    if (!rows.length) return null;
+    var firstCells = rows[0].querySelectorAll("td");
+    if (!firstCells.length || !/pnr/i.test(firstCells[0].textContent)) return null;
+
+    var pairs = [];
+    var pnrValue = "";
+    rows.forEach(function (row, idx) {
+      var cells = row.querySelectorAll("td");
+      for (var i = 0; i < cells.length; i += 2) {
+        if (!cells[i + 1]) continue;
+        var label = cells[i].textContent.replace(/:$/, "").trim();
+        var value = cells[i + 1].innerHTML.trim();
+        if (idx === 0) { pnrValue = value; continue; }
+        pairs.push({ label: label, value: value });
+      }
+    });
+
+    var card = document.createElement("div");
+    card.className = "ticket-card";
+    var head = document.createElement("div");
+    head.className = "ticket-head";
+    head.innerHTML = '<div class="brand">TrackMate</div><div class="status">Booking Confirmed ✓</div>';
+    var body = document.createElement("div");
+    body.className = "ticket-body";
+    var pnrBlock = document.createElement("div");
+    pnrBlock.className = "ticket-pnr";
+    pnrBlock.innerHTML = '<div class="pnr-label">PNR</div><div class="pnr-value">' + pnrValue + "</div>";
+    var grid = document.createElement("div");
+    grid.className = "ticket-grid";
+    pairs.forEach(function (p) {
+      var field = document.createElement("div");
+      field.innerHTML = '<div class="t-label">' + p.label + '</div><div class="t-value">' + p.value + "</div>";
+      grid.appendChild(field);
+    });
+    body.appendChild(pnrBlock);
+    body.appendChild(grid);
+    card.appendChild(head);
+    card.appendChild(body);
+    return card;
   }
 
   // Turns a "label: value" style table (td.blue label + value) into a
@@ -97,10 +151,20 @@
       }
       card.appendChild(top);
 
+      var fromIdx = headers.findIndex(function (h) { return /from/i.test(h); });
+      var toIdx = headers.findIndex(function (h) { return /^to\b|to.?stn|to.?station/i.test(h); });
+      if (fromIdx >= 0 && toIdx >= 0 && cells[fromIdx] && cells[toIdx]) {
+        var route = document.createElement("div");
+        route.className = "rc-route";
+        route.innerHTML = '<span class="stn">' + cells[fromIdx].textContent.trim() +
+          '</span><span class="line"></span><span class="stn">' + cells[toIdx].textContent.trim() + "</span>";
+        card.appendChild(route);
+      }
+
       var grid = document.createElement("div");
       grid.className = "rc-grid";
       cells.forEach(function (cell, i) {
-        if (i === titleIdx) return;
+        if (i === titleIdx || i === fromIdx || i === toIdx) return;
         var cellHasForm = cell.querySelector("form, input[type=submit], a");
         if (cellHasForm) return; // handled in actions row below
         var field = document.createElement("div");
@@ -144,11 +208,11 @@
       if (rowCount === 0) return;
 
       var built = null;
-      // Heuristic: a 2-column table where the first cell of every row has
-      // class "blue" is a label/value detail view (fare, availability...).
       var firstRow = table.querySelector("tr");
       var firstCells = firstRow ? firstRow.querySelectorAll("td") : [];
-      if (firstCells.length === 2 && firstCells[0].classList.contains("blue")) {
+      if (firstCells.length && /pnr/i.test(firstCells[0].textContent)) {
+        built = enhancePnrTable(table);
+      } else if (firstCells.length === 2 && firstCells[0].classList.contains("blue")) {
         built = enhanceKeyValueTable(table);
       } else if (rowCount > 1) {
         built = enhanceListTable(table);
@@ -162,7 +226,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    initNavToggle();
+    initDrawer();
     enhanceLegacyTables();
   });
 

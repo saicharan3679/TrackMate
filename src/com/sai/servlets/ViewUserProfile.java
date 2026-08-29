@@ -39,19 +39,22 @@ public class ViewUserProfile extends HttpServlet {
 
 		RequestDispatcher rd = req.getRequestDispatcher("UserHome.html");
 		rd.include(req, res);
-		pw.println("<div class='tab'>" + "		<p1 class='menu'>" + "	Hello " + TrainUtil.getCurrentUserName(req)
-				+ " ! Welcome to our new TrackMate" + "		</p1>" + "	</div>");
-		pw.println("<div class='main'><p1 class='menu'><a href='viewuserprofile'>View Profile</a></p1>&nbsp;"
-				+ "<p1 class='menu'><a href='edituserprofile'>Edit Profile</a></p1>&nbsp;"
-				+ "<p1 class='menu'><a href='changeuserpassword'>Change Password</a></p1>" + "</div>");
-		pw.println("<div class='tab'>Users Profile View</div>");
-		pw.println("<div class='tab'>" + "<table>" + "<tr><td>Profile Photo :</td><td>" + photoTag + "</td></tr>"
-				+ "<tr><td>User Name :</td><td>" + ub.getMailId() + "</td></tr>"
-				+ "<tr><td>Password :</td><td><input type='password' disabled value='" + ub.getPWord() + "'/></td></tr>"
-				+ "<tr><td>First Name :</td><td>" + ub.getFName() + "</td></tr>" + "<tr><td>Last Name :</td><td>"
-				+ ub.getLName() + "</td></tr>" + "<tr><td>Address :</td><td>" + ub.getAddr() + "</td></tr>"
-				+ "<tr><td>Phone No:</td><td>" + ub.getPhNo() + "</td></tr>" + "<tr><td>Mail Id :</td><td>"
-				+ ub.getMailId() + "</td></tr>" + "</table>" + "</div>");
+		pw.println("<div class='profile-view' data-view='profile'>");
+		pw.println("<div class='profile-photo-slot'>" + photoTag + "</div>");
+		pw.println("<div class='profile-name'>" + ub.getFName() + " " + ub.getLName() + "</div>");
+		pw.println("<div class='profile-email'>" + ub.getMailId() + "</div>");
+		pw.println("<div class='profile-fields'>"
+				+ "<div class='pf-row'><div class='pf-label'>First Name</div><div class='pf-value'>" + ub.getFName() + "</div></div>"
+				+ "<div class='pf-row'><div class='pf-label'>Last Name</div><div class='pf-value'>" + ub.getLName() + "</div></div>"
+				+ "<div class='pf-row'><div class='pf-label'>Email</div><div class='pf-value'>" + ub.getMailId() + "</div></div>"
+				+ "<div class='pf-row'><div class='pf-label'>Address</div><div class='pf-value'>" + ub.getAddr() + "</div></div>"
+				+ "<div class='pf-row'><div class='pf-label'>Phone</div><div class='pf-value'>" + ub.getPhNo() + "</div></div>"
+				+ "</div>");
+		pw.println("<div class='profile-actions'>"
+				+ "<a class='btn ghost' href='edituserprofile'>Edit Profile</a>"
+				+ "<a class='btn ghost' href='changeuserpassword'>Change Password</a>"
+				+ "</div>");
+		pw.println("</div>");
 
 	}
 

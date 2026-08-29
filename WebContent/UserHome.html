@@ -6,25 +6,42 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav class="topnav">
+  <div class="app-shell">
+  <div class="topbar">
     <div class="brand">TrackMate</div>
-    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
-    <div class="links">
-      <a href="userhome" class="active">Home</a>
-      <a href="userviewtrainfwd">View Trains</a>
-      <a href="trainbwstnfwd">Between Stations</a>
-      <a href="bookingdetails">Booking History</a>
-      <a href="fareenqfwd">Fare Enquiry</a>
-      <a href="useravailfwd">Availability</a>
-      <a href="usersearchtrain">Search</a>
-      <a href="userprofile">Profile</a>
-    </div>
-    <a href="userlogout" class="logout">Log Out</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+  </div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <nav class="drawer" id="drawer">
+    <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
+    <div class="brand">TrackMate</div>
+      <a href="userhome" class="nav-link active"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg><span>Home</span></a>
+      <a href="userviewtrainfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="4" width="14" height="12" rx="3"/><path d="M5 12h14M8 20l-2 2M16 20l2 2M9 8h.01M15 8h.01"/></svg><span>View Trains</span></a>
+      <a href="trainbwstnfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4v13M7 17l-3-3M7 17l3-3"/><path d="M17 20V7M17 7l3 3M17 7l-3 3"/></svg><span>Between Stations</span></a>
+      <a href="bookingdetails" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span>Booking History</span></a>
+      <a href="fareenqfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M8 7h6a2.5 2.5 0 010 5H10a2.5 2.5 0 000 5h6"/></svg><span>Fare Enquiry</span></a>
+      <a href="useravailfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4v9a2 2 0 002 2h6M6 13H4a1 1 0 00-1 1v3a1 1 0 001 1h1"/><path d="M18 15v-4a2 2 0 00-2-2H10M18 15h1a1 1 0 011 1v3a1 1 0 01-1 1h-1"/></svg><span>Availability</span></a>
+      <a href="usersearchtrain" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg><span>Search</span></a>
+      <a href="userprofile" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg><span>Profile</span></a>
+    <a href="userlogout" class="nav-link logout"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4H5v16h4M15 16l4-4-4-4M19 12H9"/></svg><span>Log Out</span></a>
   </nav>
-  <div class="page">
+  <nav class="sidebar">
+    <div class="brand">TrackMate</div>
+      <a href="userhome" class="nav-link active"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg><span>Home</span></a>
+      <a href="userviewtrainfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="4" width="14" height="12" rx="3"/><path d="M5 12h14M8 20l-2 2M16 20l2 2M9 8h.01M15 8h.01"/></svg><span>View Trains</span></a>
+      <a href="trainbwstnfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4v13M7 17l-3-3M7 17l3-3"/><path d="M17 20V7M17 7l3 3M17 7l-3 3"/></svg><span>Between Stations</span></a>
+      <a href="bookingdetails" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span>Booking History</span></a>
+      <a href="fareenqfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M8 7h6a2.5 2.5 0 010 5H10a2.5 2.5 0 000 5h6"/></svg><span>Fare Enquiry</span></a>
+      <a href="useravailfwd" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4v9a2 2 0 002 2h6M6 13H4a1 1 0 00-1 1v3a1 1 0 001 1h1"/><path d="M18 15v-4a2 2 0 00-2-2H10M18 15h1a1 1 0 011 1v3a1 1 0 01-1 1h-1"/></svg><span>Availability</span></a>
+      <a href="usersearchtrain" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg><span>Search</span></a>
+      <a href="userprofile" class="nav-link"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg><span>Profile</span></a>
+    <div class="nav-spacer"></div>
+    <a href="userlogout" class="nav-link logout"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4H5v16h4M15 16l4-4-4-4M19 12H9"/></svg><span>Log Out</span></a>
+  </nav>
+    <div class="main-content">
+      <div class="page">
     <div class="page-heading">Good to see you 👋</div>
     <div class="page-subtext">Where are you travelling today?</div>
-
     <div class="search-panel">
       <form action="trainbwstn" method="post">
         <div class="field-row">
@@ -34,30 +51,12 @@
         <button type="submit" class="btn accent">Search Trains</button>
       </form>
     </div>
-
     <div class="quick-grid">
-      <a class="quick-card" href="SearchTrains.html">
-        <div class="icon">🔎</div>
-        <div class="title">Search Trains</div>
-        <div class="desc">Find a train by number</div>
-      </a>
-      <a class="quick-card" href="BookTrains.html">
-        <div class="icon">🎟️</div>
-        <div class="title">My Bookings</div>
-        <div class="desc">View booking history</div>
-      </a>
-      <a class="quick-card" href="Availability.html">
-        <div class="icon">💺</div>
-        <div class="title">Check Availability</div>
-        <div class="desc">Live seat counts</div>
-      </a>
-      <a class="quick-card" href="Fare.html">
-        <div class="icon">💳</div>
-        <div class="title">Fare Enquiry</div>
-        <div class="desc">Compare route pricing</div>
-      </a>
+      <a class="quick-card" href="SearchTrains.html"><div class="icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg></div><div class="title">Search Trains</div><div class="desc">Find a train by number</div></a>
+      <a class="quick-card" href="BookTrains.html"><div class="icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><div class="title">My Bookings</div><div class="desc">View booking history</div></a>
+      <a class="quick-card" href="Availability.html"><div class="icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4v9a2 2 0 002 2h6M6 13H4a1 1 0 00-1 1v3a1 1 0 001 1h1"/><path d="M18 15v-4a2 2 0 00-2-2H10M18 15h1a1 1 0 011 1v3a1 1 0 01-1 1h-1"/></svg></div><div class="title">Check Availability</div><div class="desc">Live seat counts</div></a>
+      <a class="quick-card" href="Fare.html"><div class="icon"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M8 7h6a2.5 2.5 0 010 5H10a2.5 2.5 0 000 5h6"/></svg></div><div class="title">Fare Enquiry</div><div class="desc">Compare route pricing</div></a>
     </div>
-
     <div class="page-heading" style="font-size:18px;">Upcoming journey</div>
     <div class="empty-state">
       <div class="icon">🧭</div>
