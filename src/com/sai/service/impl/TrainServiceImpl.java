@@ -46,7 +46,7 @@ public class TrainServiceImpl implements TrainService {
 		try {
 			Connection con = DBUtil.getConnection();
 			PreparedStatement ps = con.prepareStatement(query);
-			ps.setString(1, trainNo);
+			ps.setInt(1, Integer.parseInt(trainNo));
 			int response = ps.executeUpdate();
 			if (response > 0) {
 				responseCode = ResponseCode.SUCCESS.toString();
@@ -70,7 +70,7 @@ public class TrainServiceImpl implements TrainService {
 			ps.setString(3, train.getTo_stn());
 			ps.setLong(4, train.getSeats());
 			ps.setDouble(5, train.getFare());
-			ps.setDouble(6, train.getTr_no());
+			ps.setLong(6, train.getTr_no());
 			int response = ps.executeUpdate();
 			if (response > 0) {
 				responseCode = ResponseCode.SUCCESS.toString();
@@ -89,7 +89,7 @@ public class TrainServiceImpl implements TrainService {
 		try {
 			Connection con = DBUtil.getConnection();
 			PreparedStatement ps = con.prepareStatement(query);
-			ps.setString(1, trainNo);
+			ps.setInt(1, Integer.parseInt(trainNo));
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				train = new TrainBean();

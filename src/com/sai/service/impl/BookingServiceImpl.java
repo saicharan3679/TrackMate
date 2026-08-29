@@ -59,8 +59,8 @@ public class BookingServiceImpl implements BookingService {
 			String transactionId = UUID.randomUUID().toString();
 			ps.setString(1, transactionId);
 			ps.setString(2, details.getMailId());
-			ps.setString(3, details.getTr_no());
-			ps.setString(4, details.getDate());
+			ps.setInt(3, Integer.parseInt(details.getTr_no()));
+			ps.setDate(4, java.sql.Date.valueOf(details.getDate()));
 			ps.setString(5, details.getFrom_stn());
 			ps.setString(6, details.getTo_stn());
 			ps.setLong(7, details.getSeats());
