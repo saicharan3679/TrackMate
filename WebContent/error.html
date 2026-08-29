@@ -6,17 +6,28 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav class="topnav">
-    <div class="brand">TrackMate</div>
-    <div class="links">
-      <a href="UserLogin.html">User Login</a>
-      <a href="UserRegister.html">Register</a>
-      <a href="AdminLogin.html">Admin Login</a>
+  <div class="auth-shell">
+    <div class="auth-hero">
+      <div class="brand">TrackMate</div>
+      <h1>One moment</h1>
+      <p>Something didn't go as planned — the details are below.</p>
+      <div class="feature-list">
+
+      </div>
     </div>
-  </nav>
-  <div class="page" style="display:flex; flex-direction:column; align-items:center; padding-top:48px;">
-    <div class="card">
-      <h2>Something went wrong</h2>
-      <p style="color:var(--ink-muted); font-size:14px;">The page you were looking for could not be processed. Please go back and try again.</p>
-      <a class="btn" style="display:block;" href="UserLogin.html">Back to Login</a>
+    <div class="auth-panel">
+      <div style="width:100%; max-width:420px;">
+        <div style="display:flex; gap:8px; margin-bottom:22px; justify-content:center;">
+          <a href="UserLogin.html" class="tab-pill">User Login</a>
+          <a href="UserRegister.html" class="tab-pill">Register</a>
+          <a href="AdminLogin.html" class="tab-pill">Admin Login</a>
+        </div>
+        <div class="card" style="max-width:none;">
+          <h2>Something went wrong</h2>
+          <p style="color:var(--ink-muted); font-size:14px;">The page you were looking for could not be processed. Please go back and try again.</p>
+          <a class="btn" style="display:block;" href="UserLogin.html">Back to Login</a>
+        </div>
+      </div>
     </div>
+  </div>
+  <script src="assets/js/enhance.js"></script>

@@ -6,26 +6,39 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav class="topnav">
-    <div class="brand">TrackMate</div>
-    <div class="links">
-      <a href="UserLogin.html">User Login</a>
-      <a href="UserRegister.html" class="active">Register</a>
-      <a href="AdminLogin.html">Admin Login</a>
+  <div class="auth-shell">
+    <div class="auth-hero">
+      <div class="brand">TrackMate</div>
+      <h1>Join TrackMate</h1>
+      <p>Create your account to start booking trains, tracking fares, and managing your journeys.</p>
+      <div class="feature-list">
+        <div class="feature-item"><span class="dot"></span>Free to join</div>
+        <div class="feature-item"><span class="dot"></span>Manage bookings in one place</div>
+        <div class="feature-item"><span class="dot"></span>Fast checkout on future trips</div>
+      </div>
     </div>
-  </nav>
-  <div class="page" style="display:flex; flex-direction:column; align-items:center; padding-top:48px;">
-    <div class="card card-wide">
-      <h2>Create Your Account</h2>
-      <form action="userreg" method="post" enctype="multipart/form-data">
-        <div class="field"><label>Email</label><input type="email" name="mailid" placeholder="you@example.com" required></div>
-        <div class="field"><label>Password</label><input type="password" name="pword" required></div>
-        <div class="field"><label>First Name</label><input type="text" name="firstname" required></div>
-        <div class="field"><label>Last Name</label><input type="text" name="lastname" required></div>
-        <div class="field"><label>Address</label><input type="text" name="address" required></div>
-        <div class="field"><label>Phone Number</label><input type="number" name="phoneno" required></div>
-        <div class="field"><label>Profile Photo (optional)</label><input type="file" name="userphoto"></div>
-        <button type="submit" class="btn accent">Create Account</button>
-      </form>
-      <div class="helper-links">Already registered? <a href="UserLogin.html">Log in</a></div>
+    <div class="auth-panel">
+      <div style="width:100%; max-width:420px;">
+        <div style="display:flex; gap:8px; margin-bottom:22px; justify-content:center;">
+          <a href="UserLogin.html" class="tab-pill">User Login</a>
+          <a href="UserRegister.html" class="tab-pill active">Register</a>
+          <a href="AdminLogin.html" class="tab-pill">Admin Login</a>
+        </div>
+        <div class="card card-wide" style="max-width:none;">
+          <h2>Create your account</h2>
+          <form action="userreg" method="post" enctype="multipart/form-data">
+            <div class="field"><label>Email</label><input type="email" name="mailid" placeholder="you@example.com" required></div>
+            <div class="field"><label>Password</label><input type="password" name="pword" required></div>
+            <div class="field"><label>First Name</label><input type="text" name="firstname" required></div>
+            <div class="field"><label>Last Name</label><input type="text" name="lastname" required></div>
+            <div class="field"><label>Address</label><input type="text" name="address" required></div>
+            <div class="field"><label>Phone Number</label><input type="number" name="phoneno" required></div>
+            <div class="field"><label>Profile Photo (optional)</label><input type="file" name="userphoto"></div>
+            <button type="submit" class="btn accent">Create Account</button>
+          </form>
+          <div class="helper-links">Already registered? <a href="UserLogin.html">Log in</a></div>
+        </div>
+      </div>
     </div>
+  </div>
+  <script src="assets/js/enhance.js"></script>

@@ -8,6 +8,7 @@
 <body>
   <nav class="topnav">
     <div class="brand">TrackMate</div>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
     <div class="links">
       <a href="AdminHome.html" class="active">Home</a>
       <a href="adminviewtrainfwd">View Trains</a>
@@ -20,4 +21,32 @@
   </nav>
   <div class="page">
     <div class="page-heading">Admin Dashboard</div>
-    <div class="banner">Welcome, Admin. Manage trains using the menu above.</div>
+    <div class="page-subtext">Manage the TrackMate train network.</div>
+    <div class="quick-grid">
+      <a class="quick-card" href="AddTrains.html">
+        <div class="icon">➕</div>
+        <div class="title">Add Train</div>
+        <div class="desc">Register a new service</div>
+      </a>
+      <a class="quick-card" href="AdminUpdateTrain.html">
+        <div class="icon">✏️</div>
+        <div class="title">Update Train</div>
+        <div class="desc">Edit schedule or fare</div>
+      </a>
+      <a class="quick-card" href="CancleTrain.html">
+        <div class="icon">🗑️</div>
+        <div class="title">Delete Train</div>
+        <div class="desc">Remove a service</div>
+      </a>
+      <a class="quick-card" href="ViewTrains.html">
+        <div class="icon">🚆</div>
+        <div class="title">View All Trains</div>
+        <div class="desc">Full network listing</div>
+      </a>
+      <a class="quick-card" href="AdminSearchTrain.html">
+        <div class="icon">🔎</div>
+        <div class="title">Search Train</div>
+        <div class="desc">Find by train number</div>
+      </a>
+    </div>
+  <script src="assets/js/enhance.js"></script>

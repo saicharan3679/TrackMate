@@ -6,27 +6,34 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav class="topnav">
-    <div class="brand">TrackMate</div>
-    <div class="links">
-      <a href="UserLogin.html" class="active">User Login</a>
-      <a href="UserRegister.html">Register</a>
-      <a href="AdminLogin.html">Admin Login</a>
+  <div class="auth-shell">
+    <div class="auth-hero">
+      <div class="brand">TrackMate</div>
+      <h1>Book train tickets in a few clicks</h1>
+      <p>Search live train availability, compare fares, and manage every booking from one dashboard.</p>
+      <div class="feature-list">
+        <div class="feature-item"><span class="dot"></span>Real-time seat availability</div>
+        <div class="feature-item"><span class="dot"></span>Instant fare comparison</div>
+        <div class="feature-item"><span class="dot"></span>Track your full booking history</div>
+      </div>
     </div>
-  </nav>
-  <div class="page" style="display:flex; flex-direction:column; align-items:center; padding-top:48px;">
-    <div class="card">
-      <h2>User Login</h2>
-      <form action="userlogin" method="post">
-        <div class="field">
-          <label>Email</label>
-          <input type="text" name="uname" placeholder="you@example.com">
+    <div class="auth-panel">
+      <div style="width:100%; max-width:420px;">
+        <div style="display:flex; gap:8px; margin-bottom:22px; justify-content:center;">
+          <a href="UserLogin.html" class="tab-pill active">User Login</a>
+          <a href="UserRegister.html" class="tab-pill">Register</a>
+          <a href="AdminLogin.html" class="tab-pill">Admin Login</a>
         </div>
-        <div class="field">
-          <label>Password</label>
-          <input type="password" name="pword">
+        <div class="card" style="max-width:none;">
+          <h2>Welcome back</h2>
+          <form action="userlogin" method="post">
+            <div class="field"><label>Email</label><input type="text" name="uname" placeholder="you@example.com"></div>
+            <div class="field"><label>Password</label><input type="password" name="pword"></div>
+            <button type="submit" class="btn">Log In</button>
+          </form>
+          <div class="helper-links">New here? <a href="UserRegister.html">Create an account</a></div>
         </div>
-        <button type="submit" class="btn">Log In</button>
-      </form>
-      <div class="helper-links">New here? <a href="UserRegister.html">Create an account</a></div>
+      </div>
     </div>
+  </div>
+  <script src="assets/js/enhance.js"></script>

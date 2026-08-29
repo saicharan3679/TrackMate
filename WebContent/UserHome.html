@@ -8,6 +8,7 @@
 <body>
   <nav class="topnav">
     <div class="brand">TrackMate</div>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
     <div class="links">
       <a href="userhome" class="active">Home</a>
       <a href="userviewtrainfwd">View Trains</a>
@@ -21,6 +22,46 @@
     <a href="userlogout" class="logout">Log Out</a>
   </nav>
   <div class="page">
-    <div class="page-heading">Welcome back</div>
-    <div class="page-subtext">Here's your TrackMate dashboard.</div>
-    <div class="banner">Use the menu above to search trains, check seat availability, view fares, or book a ticket.</div>
+    <div class="page-heading">Good to see you 👋</div>
+    <div class="page-subtext">Where are you travelling today?</div>
+
+    <div class="search-panel">
+      <form action="trainbwstn" method="post">
+        <div class="field-row">
+          <div class="field" style="margin-bottom:0;"><label>From Station</label><input type="text" name="fromstation" placeholder="e.g. HOWRAH"></div>
+          <div class="field" style="margin-bottom:0;"><label>To Station</label><input type="text" name="tostation" placeholder="e.g. JODHPUR"></div>
+        </div>
+        <button type="submit" class="btn accent">Search Trains</button>
+      </form>
+    </div>
+
+    <div class="quick-grid">
+      <a class="quick-card" href="SearchTrains.html">
+        <div class="icon">🔎</div>
+        <div class="title">Search Trains</div>
+        <div class="desc">Find a train by number</div>
+      </a>
+      <a class="quick-card" href="BookTrains.html">
+        <div class="icon">🎟️</div>
+        <div class="title">My Bookings</div>
+        <div class="desc">View booking history</div>
+      </a>
+      <a class="quick-card" href="Availability.html">
+        <div class="icon">💺</div>
+        <div class="title">Check Availability</div>
+        <div class="desc">Live seat counts</div>
+      </a>
+      <a class="quick-card" href="Fare.html">
+        <div class="icon">💳</div>
+        <div class="title">Fare Enquiry</div>
+        <div class="desc">Compare route pricing</div>
+      </a>
+    </div>
+
+    <div class="page-heading" style="font-size:18px;">Upcoming journey</div>
+    <div class="empty-state">
+      <div class="icon">🧭</div>
+      <div class="title">No upcoming journey yet</div>
+      <div>Search a route above, or check your <a href="bookingdetails">booking history</a> to view past trips.</div>
+    </div>
+  <script src="assets/js/enhance.js"></script>

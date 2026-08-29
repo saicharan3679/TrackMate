@@ -6,21 +6,32 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav class="topnav">
-    <div class="brand">TrackMate</div>
-    <div class="links">
-      <a href="UserLogin.html">User Login</a>
-      <a href="UserRegister.html">Register</a>
-      <a href="AdminLogin.html">Admin Login</a>
+  <div class="auth-shell">
+    <div class="auth-hero">
+      <div class="brand">TrackMate</div>
+      <h1>Your journey starts here</h1>
+      <p>TrackMate makes finding and booking train tickets simple, fast, and reliable.</p>
+      <div class="feature-list">
+        <div class="feature-item"><span class="dot"></span>Live seat availability</div>
+        <div class="feature-item"><span class="dot"></span>Transparent fares</div>
+        <div class="feature-item"><span class="dot"></span>Simple booking history</div>
+      </div>
     </div>
-  </nav>
-  <div class="page" style="display:flex; flex-direction:column; align-items:center; padding-top:48px;">
-    <div class="card">
-      <h2>Welcome to TrackMate</h2>
-      <p style="color:var(--ink-muted); font-size:14px; margin-bottom:20px;">
-        Search trains, check seat availability, and book tickets online.
-      </p>
-      <a class="btn" style="margin-bottom:10px; display:block;" href="UserLogin.html">Continue as User</a>
-      <a class="btn accent" style="display:block;" href="AdminLogin.html">Continue as Admin</a>
-      <div class="helper-links">New here? <a href="UserRegister.html">Create an account</a></div>
+    <div class="auth-panel">
+      <div style="width:100%; max-width:420px;">
+        <div style="display:flex; gap:8px; margin-bottom:22px; justify-content:center;">
+          <a href="UserLogin.html" class="tab-pill">User Login</a>
+          <a href="UserRegister.html" class="tab-pill">Register</a>
+          <a href="AdminLogin.html" class="tab-pill">Admin Login</a>
+        </div>
+        <div class="card" style="max-width:none;">
+          <h2>Welcome to TrackMate</h2>
+          <p style="color:var(--ink-muted); font-size:14px; margin-bottom:20px;">Search trains, check seat availability, and book tickets online.</p>
+          <a class="btn" style="display:block; margin-bottom:10px;" href="UserLogin.html">Continue as User</a>
+          <a class="btn accent" style="display:block;" href="AdminLogin.html">Continue as Admin</a>
+          <div class="helper-links">New here? <a href="UserRegister.html">Create an account</a></div>
+        </div>
+      </div>
     </div>
+  </div>
+  <script src="assets/js/enhance.js"></script>

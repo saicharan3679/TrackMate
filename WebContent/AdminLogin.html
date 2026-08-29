@@ -6,20 +6,33 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav class="topnav">
-    <div class="brand">TrackMate</div>
-    <div class="links">
-      <a href="UserLogin.html">User Login</a>
-      <a href="UserRegister.html">Register</a>
-      <a href="AdminLogin.html" class="active">Admin Login</a>
+  <div class="auth-shell">
+    <div class="auth-hero">
+      <div class="brand">TrackMate</div>
+      <h1>Manage TrackMate</h1>
+      <p>Add, update, and monitor trains across the entire network from the admin console.</p>
+      <div class="feature-list">
+        <div class="feature-item"><span class="dot"></span>Manage train schedules</div>
+        <div class="feature-item"><span class="dot"></span>Control seat inventory</div>
+        <div class="feature-item"><span class="dot"></span>Full network oversight</div>
+      </div>
     </div>
-  </nav>
-  <div class="page" style="display:flex; flex-direction:column; align-items:center; padding-top:48px;">
-    <div class="card">
-      <h2>Admin Login</h2>
-      <form action="adminlogin" method="post">
-        <div class="field"><label>Admin Username</label><input type="text" name="uname" placeholder="Enter admin email"></div>
-        <div class="field"><label>Password</label><input type="password" name="pword"></div>
-        <button type="submit" class="btn">Log In</button>
-      </form>
+    <div class="auth-panel">
+      <div style="width:100%; max-width:420px;">
+        <div style="display:flex; gap:8px; margin-bottom:22px; justify-content:center;">
+          <a href="UserLogin.html" class="tab-pill">User Login</a>
+          <a href="UserRegister.html" class="tab-pill">Register</a>
+          <a href="AdminLogin.html" class="tab-pill active">Admin Login</a>
+        </div>
+        <div class="card" style="max-width:none;">
+          <h2>Admin Login</h2>
+          <form action="adminlogin" method="post">
+            <div class="field"><label>Admin Username</label><input type="text" name="uname" placeholder="Enter admin email"></div>
+            <div class="field"><label>Password</label><input type="password" name="pword"></div>
+            <button type="submit" class="btn">Log In</button>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
+  <script src="assets/js/enhance.js"></script>
